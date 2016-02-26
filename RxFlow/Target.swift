@@ -81,7 +81,7 @@ public final class Target {
     
     // MARK: RX request methods
     
-    public func get() -> Observable < (JSON, [String: String]) > {
+    public func get() -> Observable < (JSON, Headers) > {
         return get(SwiftyJSONParser)
     }
     
