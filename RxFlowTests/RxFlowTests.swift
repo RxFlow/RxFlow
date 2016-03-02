@@ -18,7 +18,8 @@ class RxFlowTests: XCTestCase {
     private let postURL = "http://httpbin.org/post"
     private let putURL = "http://httpbin.org/put"
     private let deleteURL = "http://httpbin.org/delete"
-    
+    private let patchURL = "http://httpbin.org/patch"
+
     
     private var disposeBag = DisposeBag()
     
@@ -83,6 +84,42 @@ class RxFlowTests: XCTestCase {
         
         waitForExpectation()
         XCTAssertNotNil(result)
+    }
+
+    func testHead() {
+
+        let expectation = expectationWithDescription("Head should be successful")
+        RxFlow().target(getURL).head().subscribeNext { headers in
+            expectation.fulfill()
+        }.addDisposableTo(disposeBag)
+
+        waitForExpectation()
+    }
+
+    func testOptions() {
+
+        let expectation = expectationWithDescription("Options should be successful")
+
+        RxFlow().target(getURL).options().subscribeNext { _,_ in
+            expectation.fulfill()
+        }.addDisposableTo(disposeBag)
+
+        waitForExpectation()
+    }
+
+    func testPatch() {
+
+        let expectation = expectationWithDescription("Patch should return data")
+        let data = "payload".dataUsingEncoding(NSUTF8StringEncoding)!
+        var result: JSON = nil
+
+        RxFlow().target(patchURL).patch(data, parser: SwiftyJSONParser).subscribeNext { json, _ in
+            result = json
+            expectation.fulfill()
+        }.addDisposableTo(disposeBag)
+
+        waitForExpectation()
+        XCTAssertEqual(result["data"].string, "payload")
     }
     
     func testSingleQueryParameter() {
