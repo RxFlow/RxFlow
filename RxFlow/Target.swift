@@ -40,11 +40,11 @@ public final class Target {
     private let url: String
     private var session: NSURLSession
     private let retries: Int
-    private let delay: Double
+    private let delay: Int
     private lazy var parameters: Array<NSURLQueryItem> = []
     private lazy var headers: [String:String] = [:]
 
-    init(url: String, session: NSURLSession, retries: Int, delay: Double) {
+    init(url: String, session: NSURLSession, retries: Int, delay: Int) {
         self.url = url
         self.session = session
         self.retries = retries
@@ -187,6 +187,7 @@ public final class Target {
     private func retryHandler(errors: Observable<ErrorType>) -> Observable<Int> {
 
         var attemptsLeft = self.retries
+        var attemptsDone = 0;
 
         return errors.flatMap {
             (error) -> Observable<Int> in
@@ -197,8 +198,11 @@ public final class Target {
 
             switch error {
                 case FlowError.CommunicationError(_), FlowError.UnsupportedStatusCode(_):
-                    NSThread.sleepForTimeInterval(self.delay)
+
+                    attemptsDone += 1
+                    NSThread.sleepForTimeInterval(Double(self.delay * attemptsDone))
                     attemptsLeft -= 1
+
                     return Observable.just(0)
                 default: return Observable.error(error)
             }

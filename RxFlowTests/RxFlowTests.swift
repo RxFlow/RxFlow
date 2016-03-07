@@ -246,7 +246,7 @@ class RxFlowTests: XCTestCase {
         
         let expectation = expectationWithDescription("Retry should complete")
         let retries = 3
-        
+
         RxFlow().target("https://httpbin.org/status/400", retries: retries).get().subscribeError { error in
             switch error {
             case FlowError.RetryFailed(_, let attemptsDone, let attemptsLeft):

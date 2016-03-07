@@ -26,7 +26,7 @@ public final class RxFlow {
         self.session = session
     }
     
-    public func target(url: String, retries: Int = 0, delay:Double = 0) -> Target {
+    public func target(url: String, retries: Int = 0, delay:Int = 0) -> Target {
         return Target(url: url, session: session, retries: retries, delay: delay)
     }
     
