@@ -117,7 +117,7 @@ public final class Target {
     public func head() -> Observable<Headers> {
         return request(requestForMethod(.HEAD)).map {
             _, http in return http.headers()
-        }
+        }.observeOn(MainScheduler.instance)
     }
 
     public func options<T>(parser: (NSData) throws -> T) -> Observable<(T, Headers)> {
@@ -138,9 +138,9 @@ public final class Target {
 
     // MARK: Private
     private func parse<T>(request: NSURLRequest, parser: (NSData) throws -> T) -> Observable<(T, Headers)> {
-        return self.request(request).observeOn(Target.background).map {
+        return self.request(request).map {
             data, http in return (try parser(data), http.headers())
-        }
+        }.observeOn(MainScheduler.instance)
     }
 
     private func request(request: NSURLRequest) -> Observable<(NSData, NSHTTPURLResponse)> {
@@ -178,7 +178,8 @@ public final class Target {
             return AnonymousDisposable {
                 task.cancel()
             }
-        }
+}.observeOn(Target.background)
+
         // Only add retry handler if it is requested
         return retries == 0 ? observable : observable.retryWhen(retryHandler)
     }
