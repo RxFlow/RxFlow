@@ -44,7 +44,7 @@ RxFLow().target("some_url", retries: 5).subscribeNext { json, headers in
 ```
 ### GET request with retries and delay
 ```swift
-RxFLow().target("some_url", retries: 5, delay: 1.0).subscribeNext { json, headers in 
+RxFLow().target("some_url", retries: 5, delay: 1).subscribeNext { json, headers in 
     // use json response
 }
 ```
