@@ -41,14 +41,15 @@ public final class Target {
     private var session: NSURLSession
     private let retries: Int
     private let delay: Int
+    private var headers: [String:String];
     private lazy var parameters: Array<NSURLQueryItem> = []
-    private lazy var headers: [String:String] = [:]
 
-    init(url: String, session: NSURLSession, retries: Int, delay: Int) {
+    init(url: String, session: NSURLSession, retries: Int, delay: Int, headers: Headers) {
         self.url = url
         self.session = session
         self.retries = retries
         self.delay = delay
+        self.headers = headers
     }
 
     // MARK: Value collector methods
@@ -178,7 +179,7 @@ public final class Target {
             return AnonymousDisposable {
                 task.cancel()
             }
-}.observeOn(Target.background)
+        }.observeOn(Target.background)
 
         // Only add retry handler if it is requested
         return retries == 0 ? observable : observable.retryWhen(retryHandler)

@@ -186,6 +186,24 @@ class RxFlowTests: XCTestCase {
         XCTAssertEqual(result["headers"]["Key2"].string, "Value2")
     }
 
+    func testDefaultHeaders() {
+
+        let expectation = expectationWithDescription("Default headers should be returned")
+        let headers = ["Key1": "Value1", "Key2": "Value2"]
+        var result: JSON = nil
+
+
+        RxFlow(defaultHeaders: headers).target(getURL).get().subscribeNext {
+            json, _ in result = json
+            expectation.fulfill()
+        }.addDisposableTo(disposeBag)
+
+        waitForExpectation()
+
+        XCTAssertEqual(result["headers"]["Key1"].string, "Value1")
+        XCTAssertEqual(result["headers"]["Key2"].string, "Value2")
+    }
+
     func testCommunicationError() {
 
         let expectation = expectationWithDescription("Invalid url should result in CommunicationError")
