@@ -32,7 +32,7 @@ class RxFlowTests: XCTestCase {
         let expectation = expectationWithDescription("Get should be successful")
         var result: JSON = nil
 
-        RxFlow().target(getURL).get().subscribeNext {
+        RxFlow().target(getURL).get().observeOn(MainScheduler.instance).subscribeNext {
             json, _ in result = json
             expectation.fulfill()
         }.addDisposableTo(disposeBag)

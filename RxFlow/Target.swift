@@ -38,7 +38,7 @@ public final class Target {
     public typealias Headers = [String:String]
 
     private let url: String
-    private var session: NSURLSession
+    private let session: NSURLSession
     private let retries: Int
     private let delay: Int
     private var headers: [String:String];
