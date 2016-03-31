@@ -1,5 +1,5 @@
 # RxFlow
-RxFlow is a simple, fluent, reactive and minimalistic HTTP Library. The most common HTTP verbs are supported (GET, PUT, POST, DELETE, OPTIONS, HEAD, PATCH). If you want, it's easy to set default headers and use a custom NSURLSession for all requests.
+RxFlow is a simple, fluent, reactive and minimalistic HTTP Library. The most common HTTP verbs are supported `(GET, PUT, POST, DELETE, OPTIONS, HEAD, PATCH)`. If you want, it's easy to set default headers and use a custom `NSURLSession` for all requests.
 
 ## Components
 - `RxFlow` - Factory class for creating `Target` instances. Accepts default headers and custom `NSURLSession`if needed.
