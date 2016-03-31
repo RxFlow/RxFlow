@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		F84C9EF01C7B496900516B1A /* RxFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = F84C9EEF1C7B496900516B1A /* RxFlow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F84C9F081C7B579600516B1A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84C9F061C7B579600516B1A /* RxSwift.framework */; };
-		F84C9F091C7B579600516B1A /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84C9F071C7B579600516B1A /* RxCocoa.framework */; };
 		F84C9F0D1C7B586100516B1A /* RxFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C9F0C1C7B586100516B1A /* RxFlow.swift */; };
 		F84C9F0F1C7B588B00516B1A /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C9F0E1C7B588B00516B1A /* Target.swift */; };
 		F84C9F111C7B5A8200516B1A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84C9F101C7B5A8200516B1A /* SwiftyJSON.framework */; };
 		F85A85111C7B63C200BE8C43 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F84C9F101C7B5A8200516B1A /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F85A85121C7B63C300BE8C43 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F84C9F061C7B579600516B1A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F85A85131C7B63C300BE8C43 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F84C9F071C7B579600516B1A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8C6DD811C7B5CF90084AEDE /* RxFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6DD801C7B5CF90084AEDE /* RxFlowTests.swift */; };
 		F8C6DD821C7B5D300084AEDE /* RxFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84C9EEC1C7B496900516B1A /* RxFlow.framework */; };
 /* End PBXBuildFile section */
@@ -39,7 +37,6 @@
 			files = (
 				F85A85111C7B63C200BE8C43 /* SwiftyJSON.framework in CopyFiles */,
 				F85A85121C7B63C300BE8C43 /* RxSwift.framework in CopyFiles */,
-				F85A85131C7B63C300BE8C43 /* RxCocoa.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +49,6 @@
 		F84C9EF61C7B496900516B1A /* RxFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F84C9EFD1C7B496900516B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F84C9F061C7B579600516B1A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		F84C9F071C7B579600516B1A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		F84C9F0C1C7B586100516B1A /* RxFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFlow.swift; sourceTree = "<group>"; };
 		F84C9F0E1C7B588B00516B1A /* Target.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
 		F84C9F101C7B5A8200516B1A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -66,7 +62,6 @@
 			files = (
 				F84C9F111C7B5A8200516B1A /* SwiftyJSON.framework in Frameworks */,
 				F84C9F081C7B579600516B1A /* RxSwift.framework in Frameworks */,
-				F84C9F091C7B579600516B1A /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +81,6 @@
 			children = (
 				F84C9F101C7B5A8200516B1A /* SwiftyJSON.framework */,
 				F84C9F061C7B579600516B1A /* RxSwift.framework */,
-				F84C9F071C7B579600516B1A /* RxCocoa.framework */,
 				F84C9EEE1C7B496900516B1A /* RxFlow */,
 				F84C9EFA1C7B496900516B1A /* RxFlowTests */,
 				F84C9EED1C7B496900516B1A /* Products */,
@@ -235,7 +229,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
@@ -312,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -354,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
